@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('./configs/config.ejs') %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('./layout/header.ejs') %>
+
+    <main class="w-152 m-auto my-8">
+      <div class="w-full bg-gray-800 p-5 rounded-t-lg">
+        <h2 class="text-white font-bold text-xl">Adicionar Novo Usuário</h2>
+      </div>
+
+      <form
+        action="/add"
+        method="post"
+        id="add-form"
+        enctype="multipart/form-data"
+        class="px-9 py-8 flex flex-col gap-5 shadow-3xl rounded-b-lg"
+      >
+        <!-- enctype="multipart/form-data" -> para transferir imagens -->
+        <div class="flex flex-col gap-1">
+          <label for="user_name">Nome: </label>
+          <input
+            type="text"
+            id="user_name"
+            name="name"
+            placeholder="Digite seu nome"
+            title="Digite seu nome aqui"
+            class="border border p-1 border-gray-800 rounded"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="e_mail">Email: </label>
+          <input
+            type="email"
+            id="e_mail"
+            name="email"
+            placeholder="Digite seu email"
+            title="Digite seu email aqui"
+            class="border border p-1 border-gray-800 rounded"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="tel">Telefone: </label>
+          <input
+            type="tel"
+            id="tel"
+            name="phone"
+            placeholder="Digite seu telefone"
+            title="Digite seu telefone aqui"
+            class="border border p-1 border-gray-800 rounded"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="img">Coloque uma foto de perfil: </label>
+          <input
+            type="file"
+            id="img"
+            name="image"
+            title="Escolha uma foto para seu perfil"
+            class="text-1xl rounded"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="p-2 bg-gray-800 text-white text-xl rounded"
+        >
+          Adicionar Usuário
+        </button>
+      </form>
+    </main>
+
+    <%- include('./layout/footer.ejs') %>
+  </body>
+</html>

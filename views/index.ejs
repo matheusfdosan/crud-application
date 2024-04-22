@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include("./configs/config.ejs") %>
+    <title><%= title %></title>
+  </head>
+  <body class="h-full">
+    <%- include("./layout/header.ejs", {title: 'Página Inicial'}) %>
+    <!--     
+    <% if (message) { %>
+      <span class="bg-green-200 p-5 absolute top-0 left-1/2 translate-center">Usuário criado com sucesso! </span>
+    <% } %> -->
+
+    <main class="w-10/12 m-auto my-5 rounded min-h-[473px]">
+      <% if (users != '') { %>
+      <table class="w-full rounded border-collapse odd:bg-gray-100">
+        <thead class="border-gray-300 bg-gray-800 rounded">
+          <tr>
+            <th class="align-center py-2 text-white">ID</th>
+            <th class="align-center py-2 text-white">Imagem</th>
+            <th class="align-center py-2 text-white">Nome</th>
+            <th class="align-center py-2 text-white">E-mail</th>
+            <th class="align-center py-2 text-white">Telefone</th>
+            <th class="align-center py-2 text-white">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach((user, index) => { %>
+          <tr class="bg-gray-200 border-b border-gray-500">
+            <td class="text-center py-2"><%= index %></td>
+            <td class="text-center py-2">
+              <img
+                src="<%= user.image %>"
+                alt="picture-profile"
+                class="w-20 h-20 object-cover m-auto"
+              />
+            </td>
+            <td class="text-center py-2"><%= user.name %></td>
+            <td class="text-center py-2"><%= user.email %></td>
+            <td class="text-center py-2"><%= user.phone %></td>
+            <td class="text-center py-2">
+              <a href="/edit/<%= user._id %>"
+                ><ion-icon
+                  name="create-outline"
+                  class="text-green-700 text-2xl cursor-pointer hover:scale-125 transition ease duration-200"
+                ></ion-icon
+              ></a>
+              <a href="/delete/<%= user._id %>"
+                ><ion-icon
+                  name="trash-outline"
+                  class="text-red-700 text-2xl cursor-pointer hover:scale-125 transition ease duration-200"
+                ></ion-icon
+              ></a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <h2 class="p-3 h-[473px]">Nenhum Usuário Encontrado!</h2>
+      <% }%>
+    </main>
+
+    <%- include("./layout/footer.ejs", {title: 'Página Inicial'}) %>
+  </body>
+</html>

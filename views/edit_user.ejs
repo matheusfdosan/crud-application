@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <%- include('./configs/config.ejs') %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('./layout/header.ejs') %>
+
+    <main class="w-152 m-auto my-8">
+      <div class="w-full bg-gray-800 p-5 rounded-t-lg">
+        <h2 class="text-white font-bold text-xl">
+          Editar Usuário <em><%= user.name %></em>
+        </h2>
+      </div>
+
+      <form
+        action="/update/<%= user._id%>"
+        method="post"
+        id="add-form"
+        enctype="multipart/form-data"
+        class="px-9 py-8 flex flex-col gap-5 shadow-3xl rounded-b-lg"
+      >
+        <div class="flex flex-col gap-1">
+          <label for="user_name">Nome: </label>
+          <input
+            type="text"
+            id="user_name"
+            name="name"
+            value="<%= user.name %>"
+            placeholder="Digite seu nome"
+            title="Digite seu nome aqui"
+            class="border border p-1 border-gray-800 rounded"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="e_mail">Email: </label>
+          <input
+            type="email"
+            id="e_mail"
+            name="email"
+            value="<%= user.email %>"
+            placeholder="Digite seu email"
+            title="Digite seu email aqui"
+            class="border border p-1 border-gray-800 rounded"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="tel">Telefone: </label>
+          <input
+            type="tel"
+            id="tel"
+            name="phone"
+            value="<%= user.phone %>"
+            placeholder="Digite seu telefone"
+            title="Digite seu telefone aqui"
+            class="border border p-1 border-gray-800 rounded"
+          />
+        </div>
+
+        <div class="flex justify-between items-center gap-1">
+          <div>
+            <label for="img">Coloque uma foto de perfil: </label>
+            <input
+              type="file"
+              id="img"
+              name="image"
+              title="Escolha uma foto para seu perfil"
+              class="text-1xl rounded"
+            />
+          </div>
+
+          <img
+            src="../<%= user.image %>"
+            class="w-20 h-20 object-cover"
+            alt="profile-picture"
+          />
+        </div>
+
+        <input type="hidden" name="old_image" value="<%= user.image %>">
+
+        <button
+          type="submit"
+          class="p-2 bg-green-500 text-white text-xl rounded"
+        >
+          Editar Usuário
+        </button>
+        <a
+          href="/"
+          class="p-2 bg-red-500 text-white text-xl rounded text-center"
+          >Cancelar</a
+        >
+      </form>
+    </main>
+
+    <%- include('./layout/footer.ejs') %>
+  </body>
+</html>
