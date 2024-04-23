@@ -47,7 +47,7 @@ app.use(express.static("uploads"))
 app.set("view engine", "ejs")
 
 // Route prefix
-app.use("", require("./routes/routes"))
+app.use("", require("../routes/routes"))
 
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`)

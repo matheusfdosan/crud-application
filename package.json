@@ -4,7 +4,10 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon main.js"
+    "start": "nodemon api/main.js",
+    "build": "npm run build:transpile && npm run build:copy-views",
+    "build:transpile": "babel api --out-dir dist",
+    "build:copy-views": "cp -R views dist"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +20,10 @@
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "nodemon": "^3.1.0"
   }
 }
