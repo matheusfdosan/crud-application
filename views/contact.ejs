@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./configs/config.ejs") %>
+
+    <title>Contato</title>
+  </head>
+  <body>
+    <%- include("./layout/header.ejs", {title: 'Contato'}) %>
+
+    <main
+      class="w-8/12 m-auto my-5 rounded min-h-[473px] flex flex-col gap-5 shadow-3xl rounded-lg"
+    >
+      <div class="bg-blue-500 p-5 text-xl font-bold text-white rounded-t-lg">
+        <h2 class="font-poppins">Entre em contato conosco</h2>
+      </div>
+      <form
+        class="flex flex-col gap-5 justify-center px-7"
+      >
+        <div class="flex flex-col">
+          <label for="name" class="font-poppins">Nome: </label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Digite seu nome"
+            class="border border p-1 border-gray-800 rounded"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="email" class="font-poppins">E-mail: </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Digite seu email"
+            class="border border p-1 border-gray-800 rounded"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="name" class="font-poppins">Mensagem: </label>
+          <textarea
+            name=""
+            id=""
+            class="resize-none w-full h-28 border border p-1 border-gray-800 rounded"
+            placeholder="Digite sua mensagem"
+          ></textarea>
+        </div>
+
+        <a href="/" class="text-center bg-blue-500 text-white font-poppins rounded p-3">Enviar</a>
+      </form>
+    </main>
+
+    <%- include("./layout/footer.ejs", {title: 'Contato'}) %>
+  </body>
+</html>

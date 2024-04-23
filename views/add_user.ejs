@@ -2,10 +2,10 @@
 <html lang="pt-br">
   <head>
     <%- include('./configs/config.ejs') %>
-    <title><%= title %></title>
+    <title>Adicionar Usuário</title>
   </head>
   <body>
-    <%- include('./layout/header.ejs') %>
+    <%- include('./layout/header.ejs', {title: 'Adicionar Usuário'}) %>
 
     <main class="w-152 m-auto my-8">
       <div class="w-full bg-gray-800 p-5 rounded-t-lg">
@@ -80,6 +80,6 @@
       </form>
     </main>
 
-    <%- include('./layout/footer.ejs') %>
+    <%- include('./layout/footer.ejs', {title: 'Adicionar Usuário'}) %>
   </body>
 </html>
